@@ -1,0 +1,14 @@
+name: md5-edge-extension
+forwardingRules:
+- projects/vicdemo/global/forwardingRules/md5-lb-forwarding-rule
+loadBalancingScheme: EXTERNAL_MANAGED
+extensionChains:
+- name: "md5-chain"
+  matchCondition:
+    celExpression: 'request.path.startsWith("/")'
+  extensions:
+  - name: 'md5-auth'
+    service: projects/vicdemo/locations/global/wasmPlugins/md5-auth-plugin
+    failOpen: false
+    supportedEvents:
+    - REQUEST_HEADERS
