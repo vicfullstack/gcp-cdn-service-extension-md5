@@ -57,7 +57,9 @@ Service Extensions 必须配合 **应用负载均衡器 (Application Load Balanc
 
 ## 5. 部署步骤
 
-所有部署操作已封装在 `deploy.sh` 脚本中，主要步骤如下：
+1. **安装Rust toolchain**: https://www.rust-lang.org/tools/install
+
+其它所有部署操作已封装在 `deploy.sh` 脚本中，主要步骤如下：
 
 1.  **编译 Wasm 模块**：将 Rust 代码编译为 `wasm32-wasip1` 目标格式。
     ```bash
